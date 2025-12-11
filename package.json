@@ -1,7 +1,6 @@
 {
   "name": "music-boom-backend",
   "version": "1.0.0",
-  "type": "module",
   "dependencies": {
     "ytdl-core": "^4.11.5",
     "youtube-sr": "^4.3.11"

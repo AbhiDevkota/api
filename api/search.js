@@ -1,6 +1,6 @@
-import YouTube from 'youtube-sr';
+const YouTube = require('youtube-sr').default;
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET');
   
@@ -16,14 +16,14 @@ export default async function handler(req, res) {
     const videos = results.map(video => ({
       videoId: video.id,
       title: video.title,
-      author: video.channel.name,
-      duration: video.duration,
-      thumbnail: video.thumbnail.url,
-      views: video.views
+      author: video.channel?.name || 'Unknown',
+      duration: video.duration || 0,
+      thumbnail: video.thumbnail?.url || '',
+      views: video.views || 0
     }));
 
     res.status(200).json(videos);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-}
+};
