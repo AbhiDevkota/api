@@ -2,7 +2,7 @@
   "name": "music-boom-backend",
   "version": "1.0.0",
   "dependencies": {
-    "ytdl-core": "^4.11.5",
+    "@distube/ytdl-core": "^4.14.4",
     "youtube-sr": "^4.3.11"
   }
 }
